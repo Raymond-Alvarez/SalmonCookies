@@ -21,6 +21,12 @@ const locations = [
         address: '1 Sheikh Mohoammed bin Rashid Blvd - Dubai'
     },
     {
+        city: 'Paris', // NEW LOCATION
+        hours: '6am - 7pm',
+        contact: '444-444-4444',
+        address: '18 Rue de la Paix, 75002 Paris, France'
+    },
+    {
         city: 'Lima',
         hours: '6am - 7pm',
         contact: '555-555-5555',
@@ -40,7 +46,9 @@ h1.textContent = "Welcome to Ray's Salmon Cookies!";
 // Aesthetic styles (Colors/Fonts)- Header 
 header.style.backgroundColor = '#111'; //Dark background
 header.style.color = '#ff7f67';
-h1.style.fontFamily = 'cursive, sans-serif';
+h1.style.fontFamily = "'Grandstander', cursive";
+h1.style.fontWeight = '900';
+h1.style.fontStyle = 'italic';
 h1.style.margin = '20px 0';
 
 // LAYOUT STYLES (The "Skeleton")
@@ -122,17 +130,21 @@ for (let i = 0; i < locations.length; i++) {
     // City Header
     const cityTitle = document.createElement('h2');
     cityTitle.textContent = store.city;
-    cityTitle.style.fontSize = '2rem';
-    cityTitle.style.fontFamily = 'cursive, sans-serif';
+    // cityTitle.style.fontSize = '2rem';
+    // cityTitle.style.fontFamily = 'cursive, sans-serif';
+    cityTitle.style.fontFamily = "'Grandstander', cursive";
+    cityTitle.style.fontWeight = '900';
+    cityTitle.style.fontStyle = 'italic';
     cityTitle.style.marginBottom = '-10px';
-    // cityTitle.style.marginLeft = '35px';
+    cityTitle.style.marginLeft = '15px';
     storeArticle.appendChild(cityTitle);
 
     // Info List
     const infoList = document.createElement('ul');
     infoList.style.listStyle = 'none'; //Removes bullets to match image
     infoList.style.padding = '0';
-    // infoList.style.marginLeft = '20px';
+    infoList.style.marginLeft = '35px';
+    infoList.style.marginTop = '10px';
 
     //Create line items for Hours, Contact, and Address
     const hoursLi = document.createElement('li');
