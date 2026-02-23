@@ -20,8 +20,24 @@
         </header>
     
     <main id="main-content">
-        <div id="form-placeholder"></div>
+    <section id="form-section">
+        <form id="add-store-form">
+            <fieldset>
+                <legend>Add a new store to the table!!!</legend>
+                <div class="form-row">
+                    <label>Location Name <input type="text" id="location-name" required></label>
+                    <label>Minimum Customers Per Hour <input type="number" id="min-cust" required></label>
+                    <label>Maximum Customers Per Hour <input type="number" id="max-cust" required></label>
+                    <label>Average Cookies Per Sale <input type="number" id="avg-cookies" step="0.1" required></label>
+                    <button type="submit">Click here to add!</button>
+                </div>
+            </fieldset>
+        </form>
+    </section>
+
         <table id="sales-table"></table>
+        
+        <table id="staffing-table"></table> 
     </main>
 
     <footer id="page-footer">
