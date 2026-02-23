@@ -8,7 +8,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     vertical-align: baseline;
 }
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
-body { line-height: 1; font-family: Arial, sans-serif; }
+body { line-height: 1.2; font-family: Arial, sans-serif; overflow-x: hidden; }
 ol, ul { list-style: none; }
 
 /* 2. SHARED HEADER STYLES */
@@ -18,6 +18,7 @@ ol, ul { list-style: none; }
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%; 
 }
 
 #page-header h1 {
@@ -31,50 +32,41 @@ ol, ul { list-style: none; }
 
 /* 3. NAVIGATION STYLES */
 nav {
-    /* margin-right: 45px; */
     background-color: #ff7f67;
     width: 100%;
     padding: 10px 0;
     text-align: left;
 }
 
+nav ul {
+    display: flex;
+    list-style: none;
+    padding-left: 3%; /* Aligns links with Home Page text */
+}
+
 nav a {
     margin-right: 45px;
-    color: blue;
-    /* text-decoration: none; */
-    color: #333;
     font-size: 1.1rem;
-    /* Keeps 'Sales Data' on one line */
+    /* text-decoration: none; */
+    /* color: #000; */
     white-space: nowrap;
 }
 
 nav a:hover {
-    color: white;  /* Turns salmon-colored when you hover over it */
-    text-decoration: underline; /* Adds the underline back only on hover */
+    color: white;
+    text-decoration: underline;
 }
 
-nav ul {
-    display: flex;         /* This aligns items in a row */
-    list-style: none;      /* Removes the bullet points */
-    padding-left: 2%;    Matches your side margin
-}
-
-nav li {
-    display: inline;
-}
-
-/* This adds the breathing room between the Nav and the first City */
+/* 4. CONTENT & DIVIDERS */
 #main-content {
     margin-top: 40px; 
     padding-bottom: 40px;
 }
 
-/* 4. HOME PAGE IMAGE & DIVIDER (app.js) */
 #main-content img {
     width: 80%;
     display: block;
     margin: 20px auto;
-   
 }
 
 hr {
@@ -84,90 +76,49 @@ hr {
     margin: 80px auto 40px auto;
 }
 
-/* 5. STORE & SALES LIST STYLES */
-article {
-    margin-bottom: 20px;
-    text-align: left;
-    padding: 0 20px;
+/* HOME PAGE TEXT STYLES */
+#main-content article {
+    width: 70%;         
+    margin: 40px 0 40px 3%;  
+    line-height: 1.6;   
 }
 
-h2 {
+#main-content h2 {
     font-family: 'Grandstander', cursive;
     font-weight: 900;
     font-style: italic;
-    margin-bottom: 10px;
-    margin-left: 15px;
-    font-size: 1.8rem;
+    font-size: 2.2rem;
+    margin-bottom: -10px; /* Tightens gap to list */
 }
 
-ul {
-    margin-left: 35px;
-    margin-top: 10px;
+#main-content ul {
+    margin-bottom: 20px; 
+    margin-left: 30px;
+    padding-left: 0;
 }
 
-li {
-    margin-bottom: 5px;
+#main-content li {
+    font-family: Arial, sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: -5px; 
 }
 
-/* 6. SHARED FOOTER STYLES */
-footer {
-    background-color: #ccc;
-    text-align: center;
-    padding: 30px;
-    margin-top: 80px;
-    border-top: 1px solid #999;
-    font-weight: bold;
-}
-
-/* 7. TABLE STYLES */
+/* 5. TABLE STYLES */
 table {
-    /* 70% width creates the equal empty space on the left and right sides */
     width: 70%;            
     margin: 40px auto;     
     border-collapse: collapse;
     font-family: Arial, sans-serif;
-    background-color: #777;
+    
 }
 
 th, td {
-    border: 1px solid #444; 
-    padding: 20px 10px;      /* Vertical padding 12px, Horizontal 8px */
+    border: 2px solid #444; 
+    padding: 15px 10px;      
     text-align: center;
-    /* This ensures long titles don't wrap to a second line */
     white-space: nowrap; 
 }
 
-/* TARGET THE FIRST COLUMN */
-/* We use :first-child to ensure the labels column is wide enough */
-tr th:first-child, tr td:first-child {
-    min-width: 280px;       /* Set a minimum width that fits your long text */
-    text-align: left;
-    padding-left: 15px;
-    background-color: #ff7f67;
-    color: black;
-}
-
-/* Header and Footer Row (Dark Grey) */
-thead tr, tfoot tr, thead th, tfoot th {
-    background-color: #888; 
-    color: white;
-    font-weight: bold;
-}
-
-/* Target Header Row (thead), Footer Row (tfoot), and Last Column */
-thead th, 
-tfoot th, 
-tfoot td,
-tr td:last-child, 
-tr th:last-child {
-    background-color: #888; 
-    color: white;
-    font-weight: bold;
-    font-size: 1rem;       /* Standard size but bold */
-    border: 1px solid #888;
-}
-
-/* Data Cells (Coral) */
 td {
     background-color: #ff7f67;
     color: black;
@@ -175,35 +126,98 @@ td {
     font-size: 1.1rem;
 }
 
-/* Location Totals Column (Dark Grey) */
-tr td:last-child, tr th:last-child {
-    background-color: #888;
+/* THE DARK FRAME (#707070) */
+thead th, 
+tfoot th, 
+tfoot td,
+tr td:last-child, 
+tr th:last-child {
+    background-color: #707070; 
     color: white;
     font-weight: bold;
+    border: 2px solid #707070;
+    /* min-width:10px;  */
 }
 
-/* Ensuring city names and footer label remain black on salmon */
-tr th:first-child {
-    min-width: 250px;       
+/* First Column Data Labels */
+tr th:first-child, tr td:first-child {
+    /* min-width: 8px;        */
     text-align: left;
     padding-left: 15px;
     background-color: #ff7f67;
     color: black;
     font-weight: bold;
-    /* border: 1px solid #444; */
 }
 
-thead th:first-child, 
-tfoot th:first-child {
-    background-color: #888;
-    color: white;
-    border: 1p solid #888;
+/* 6. FORM STYLES */
+#form-section {
+    width: 100%;
+    margin: 30px 0;
 }
 
-/* 8. PLACEHOLDER FOR INPUT FIELD */
-#form-placeholder {
-    width: 85%;
-    height: 100px; /* Space for the future form */
-    margin: 20px auto;
-    border: 1px dashed #ccc; /* Visual reminder it's waiting for a form */
+#form-container {
+    width: 70%; 
+    margin: 0 auto;
+    border: 3px solid #111;
+    padding: 30px;
+    background-color: #fff;
+    text-align: center;
+}
+
+#form-container h3 {
+    font-family: 'Grandstander', cursive;
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+}
+
+fieldset {
+    border: 1px solid #777;
+    padding: 20px;
+}
+
+legend {
+    font-family: 'Grandstander', cursive;
+    color: #ff7f67;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+#add-store-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 15px;
+}
+
+#add-store-form label {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+#add-store-form input {
+    padding: 5px;
+    border: 1px solid #ff7f67;
+    width: 100px;
+}
+
+#submit-button {
+    padding: 5px 15px;
+    cursor: pointer;
+    background-color: #e1e1e1;
+    border: 1px solid #777;
+    font-weight: bold;
+}
+
+#submit-button:hover { background-color: #ccc; }
+
+/* 7. PAGE FOOTER */
+footer {
+    background-color: #ccc;
+    color: #333;
+    text-align: center;
+    padding: 30px;
+    margin-top: 80px;
+    border-top: 1px solid #999;
+    font-weight: bold;
 }
