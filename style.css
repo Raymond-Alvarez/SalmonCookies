@@ -1,0 +1,209 @@
+/* 1. ERIC MEYER RESET */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height: 1; font-family: Arial, sans-serif; }
+ol, ul { list-style: none; }
+
+/* 2. SHARED HEADER STYLES */
+#page-header {
+    background-color: #111;
+    color: #ff7f67;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#page-header h1 {
+    font-family: 'Grandstander', cursive;
+    font-weight: 900;
+    font-style: italic;
+    margin: 20px 0;
+    font-size: 2.5rem;
+    padding: 20px;
+}
+
+/* 3. NAVIGATION STYLES */
+nav {
+    /* margin-right: 45px; */
+    background-color: #ff7f67;
+    width: 100%;
+    padding: 10px 0;
+    text-align: left;
+}
+
+nav a {
+    margin-right: 45px;
+    color: blue;
+    /* text-decoration: none; */
+    color: #333;
+    font-size: 1.1rem;
+    /* Keeps 'Sales Data' on one line */
+    white-space: nowrap;
+}
+
+nav a:hover {
+    color: white;  /* Turns salmon-colored when you hover over it */
+    text-decoration: underline; /* Adds the underline back only on hover */
+}
+
+nav ul {
+    display: flex;         /* This aligns items in a row */
+    list-style: none;      /* Removes the bullet points */
+    padding-left: 2%;    Matches your side margin
+}
+
+nav li {
+    display: inline;
+}
+
+/* This adds the breathing room between the Nav and the first City */
+#main-content {
+    margin-top: 40px; 
+    padding-bottom: 40px;
+}
+
+/* 4. HOME PAGE IMAGE & DIVIDER (app.js) */
+#main-content img {
+    width: 80%;
+    display: block;
+    margin: 20px auto;
+   
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #999;
+    width: 97%;
+    margin: 80px auto 40px auto;
+}
+
+/* 5. STORE & SALES LIST STYLES */
+article {
+    margin-bottom: 20px;
+    text-align: left;
+    padding: 0 20px;
+}
+
+h2 {
+    font-family: 'Grandstander', cursive;
+    font-weight: 900;
+    font-style: italic;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    font-size: 1.8rem;
+}
+
+ul {
+    margin-left: 35px;
+    margin-top: 10px;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+/* 6. SHARED FOOTER STYLES */
+footer {
+    background-color: #ccc;
+    text-align: center;
+    padding: 30px;
+    margin-top: 80px;
+    border-top: 1px solid #999;
+    font-weight: bold;
+}
+
+/* 7. TABLE STYLES */
+table {
+    /* 70% width creates the equal empty space on the left and right sides */
+    width: 70%;            
+    margin: 40px auto;     
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    background-color: #777;
+}
+
+th, td {
+    border: 1px solid #444; 
+    padding: 20px 10px;      /* Vertical padding 12px, Horizontal 8px */
+    text-align: center;
+    /* This ensures long titles don't wrap to a second line */
+    white-space: nowrap; 
+}
+
+/* TARGET THE FIRST COLUMN */
+/* We use :first-child to ensure the labels column is wide enough */
+tr th:first-child, tr td:first-child {
+    min-width: 280px;       /* Set a minimum width that fits your long text */
+    text-align: left;
+    padding-left: 15px;
+    background-color: #ff7f67;
+    color: black;
+}
+
+/* Header and Footer Row (Dark Grey) */
+thead tr, tfoot tr, thead th, tfoot th {
+    background-color: #888; 
+    color: white;
+    font-weight: bold;
+}
+
+/* Target Header Row (thead), Footer Row (tfoot), and Last Column */
+thead th, 
+tfoot th, 
+tfoot td,
+tr td:last-child, 
+tr th:last-child {
+    background-color: #888; 
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;       /* Standard size but bold */
+    border: 1px solid #888;
+}
+
+/* Data Cells (Coral) */
+td {
+    background-color: #ff7f67;
+    color: black;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Location Totals Column (Dark Grey) */
+tr td:last-child, tr th:last-child {
+    background-color: #888;
+    color: white;
+    font-weight: bold;
+}
+
+/* Ensuring city names and footer label remain black on salmon */
+tr th:first-child {
+    min-width: 250px;       
+    text-align: left;
+    padding-left: 15px;
+    background-color: #ff7f67;
+    color: black;
+    font-weight: bold;
+    /* border: 1px solid #444; */
+}
+
+thead th:first-child, 
+tfoot th:first-child {
+    background-color: #888;
+    color: white;
+    border: 1p solid #888;
+}
+
+/* 8. PLACEHOLDER FOR INPUT FIELD */
+#form-placeholder {
+    width: 85%;
+    height: 100px; /* Space for the future form */
+    margin: 20px auto;
+    border: 1px dashed #ccc; /* Visual reminder it's waiting for a form */
+}
