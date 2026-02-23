@@ -54,7 +54,7 @@ nav a {
     color: #000000; /* Link Text: Black */
     margin-right: 45px;
     font-size: 1.1rem;
-    text-decoration: none;
+    /* text-decoration: none; */
     font-family: Arial, sans-serif;
     font-weight: bold;
     white-space: nowrap;
@@ -73,8 +73,10 @@ nav a:hover {
 
 #main-content img {
     width: 80%;
+    max-width: 1000px;
     display: block;
     margin: 20px auto;
+    border-radius: 10px;
 }
 
 hr {
@@ -154,6 +156,15 @@ tr th:first-child, tr td:first-child {
     font-weight: bold;
 }
 
+/* OVERRIDE: This ensures the 1st cell of the 1st row (thead) 
+   and 1st cell of the last row (tfoot) are GRAY */
+thead tr th:first-child,
+tfoot tr th:first-child,
+tfoot tr td:first-child {
+    background-color: #707070;
+    color: #ffffff;
+}
+
 /* 6. FORM STYLES */
 #form-container {
     width: 70%; 
@@ -204,26 +215,52 @@ legend {
     width: 120px;
 }
 
-#submit-button {
-    padding: 5px 5px;
+    #submit-button {
+    padding: 10px 20px;
     padding-left: 5px;
     padding-right: 5px;
     cursor: pointer;
-    background-color: #ff7f67;
+    background-color: #707070;
+    color: #ffffff;
     border: 2px solid #111;
     font-family: 'Righteous', sans-serif;
     /* font-weight: 400; */
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #000000;
     /* transition: 0.2s; */
     /* letter-spacing: 1px; */
     text-transform: uppercase;
     -webkit-font-smoothing: antialiased;
+} 
+
+#submit-button {
+    /* Reduced top/bottom padding to 6px to match input height */
+    padding: 6px 20px; 
+    cursor: pointer;
+    
+    /* True Black Background */
+    background-color: #000000; 
+    color: #ffffff;            
+    border: 2px solid #000000;
+    border-radius: 6px;        /* Slightly rounded corners */
+    margin-top: 20px;
+    
+    font-family: 'Righteous', sans-serif;
+    font-size: 0.9rem;         /* Slightly smaller text to fit the smaller button */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    /* Keeps the spacing within the form-row aligned */
+    align-self: center; 
+    transition: all 0.2s ease;
+    -webkit-font-smoothing: antialiased;
 }
 
 #submit-button:hover {
-    background-color: #000000;
-    color: #ffffff;
+    /* Hover effect: Turns Salmon to match your brand */
+    background-color: #ff7f67;
+    border-color: #ff7f67;
+    color: #000000;
 }
 
 /* 7. PAGE FOOTER */
@@ -231,8 +268,19 @@ footer {
     background-color: #ccc;
     color: #333;
     text-align: center;
-    padding: 30px;
+    padding: 40px 20px;
     margin-top: 80px;
     border-top: 1px solid #999;
+    font-family: Georgia, "Times New Roman", serif;
     font-weight: bold;
+    clear: both; 
+    width: 100%;
+    display: block;
+}
+
+    footer p {
+    margin: 10px 0;           /* Adds space between the copyright and contact info */
+    font-size: 1rem;
+    line-height: 1.4;
+    display: block;
 }
