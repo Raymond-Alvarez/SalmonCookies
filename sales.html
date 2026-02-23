@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Sales Data - Ray's Salmon Cookies</title>
 </head>
@@ -17,31 +17,37 @@
                 <li><a href="sales.html">Sales Data</a></li>
             </ul>
         </nav>
-        </header>
+    </header>
     
     <main id="main-content">
-    <section id="form-section">
-        <form id="add-store-form">
-            <fieldset>
-                <legend>Add a new store to the table!!!</legend>
-                <div class="form-row">
-                    <label>Location Name <input type="text" id="location-name" required></label>
-                    <label>Minimum Customers Per Hour <input type="number" id="min-cust" required></label>
-                    <label>Maximum Customers Per Hour <input type="number" id="max-cust" required></label>
-                    <label>Average Cookies Per Sale <input type="number" id="avg-cookies" step="0.1" required></label>
-                    <button type="submit">Click here to add!</button>
-                </div>
-            </fieldset>
-        </form>
-    </section>
+        <section id="form-section">
+            <div id="form-container">
+                <form id="add-store-form">
+                    <fieldset>
+                        <legend>Add a new store to the table!!!</legend>
+                        <div class="form-row">
+                            <label>Location Name <input type="text" id="location-name" required></label>
+                            <label>Min Customers <input type="number" id="min-cust" required></label>
+                            <label>Max Customers <input type="number" id="max-cust" required></label>
+                            <label>Avg Cookies <input type="number" id="avg-cookies" step="0.1" required></label>
+                            <button type="submit" id="submit-button">Click here to add!</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
 
-        <table id="sales-table"></table>
-        
-        <table id="staffing-table"></table> 
+        <div class="table-wrapper">
+            <table id="sales-table"></table>
+        </div>
+        <div class="table-wrapper">
+            <table id="staffing-table"></table> 
+        </div>
     </main>
 
     <footer id="page-footer">
-        </footer>
+        <p>&copy; 2026 Ray's Salmon Cookies</p>
+    </footer>
 
     <script src="sales.js"></script> 
 </body>
