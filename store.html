@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Now - SalmonCookies</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header id="page-header">
+        <h1>SalmonCookies</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sales.html">Sales Data</a></li>
+            <li><a href="store.html">Order Now</a></li>
+            <li><a href="order-processing.html">Process Orders</a></li>
+            <li><button id="theme-toggle">Change Mode</button></li>
+        </ul>
+    </nav>
+    </header>
+
+    <main id="main-content">
+        <span id="order-form-title">Customer Order Form</span>
+
+        <form id="public-order-form">
+            <fieldset>
+                <legend>Shipping Information</legend>
+                <label>Full Name: 
+                    <input type="text" name="full-name" placeholder="First and Last Name" required>
+                </label>
+                <label>Street Address: 
+                    <input type="text" name="address" placeholder="123 Salmon Way" required>
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Order Details</legend>
+                <label>Cookies (Dozen): 
+                    <input type="number" name="quantity" min="1" value="1" required>
+                </label>
+                <label>Salmon Swag (T-Shirt): 
+                    <select name="swag">
+                        <option value="none">None</option>
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                        <option value="xl">Extra Large</option>
+                    </select>
+                </label>
+            </fieldset>
+
+            <button type="submit">SUBMIT ORDER</button>
+        </form>
+    </main>
+
+    <footer id="page-footer">
+        <p>&copy; 2026 Ray's Salmon Cookies</p>
+        <p>Contact us: support@rayscookies.com | (555) 123-4567</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    document.body.hasAttribute('data-theme') ? 
+                        document.body.removeAttribute('data-theme') : 
+                        document.body.setAttribute('data-theme', 'dark');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Processing - Salmon Cookies</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header id="page-header">
+        <h1>Salmon Cookies</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sales.html">Sales Data</a></li>
+                <li><a href="store.html">Order Now</a></li>
+                <li><a href="order-processing.html">Process Orders</a></li>
+                <li><button id="theme-toggle">Change Mode</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="admin-section">
+            <h2 class="admin-title">Pending Orders</h2>
+            <ul id="pending-list" style="list-style: none; padding: 0;">
+                <li class="order-row">
+                    Order #5001 - 2 Dozen Classic Salmon - Pat Smith 
+                    <button class="process-btn">Process Order</button>
+                </li>
+                <li class="order-row">
+                    Order #5002 - 1 Dozen Choc-Chip Salmon - Chris Lee 
+                    <button class="process-btn">Process Order</button>
+                </li>
+                <li class="order-row">
+                    Order #5003 - 5 Dozen Oatmeal Salmon - Morgan J. 
+                    <button class="process-btn">Process Order</button>
+                </li>
+            </ul>
+        </section>
+
+        <hr style="margin: 40px auto; width: 80%; border: 1px solid var(--border-color);">
+
+        <section class="admin-section">
+            <h2 class="admin-title">Filled Orders</h2>
+            <ul id="filled-list" style="list-style: none; padding: 0; color: #777;">
+                </ul>
+        </section>
+    </main>
+
+    <footer id="page-footer">
+        <p>&copy; 2026 Ray's Salmon Cookies</p>
+        <p>Contact us: support@rayscookies.com | (555) 123-4567</p>
+    </footer>
+
+    <script src="orders.js"></script>
+</body>
+</html>
