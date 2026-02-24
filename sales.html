@@ -2,47 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <title>Sales - SalmonCookies</title>
     <link rel="stylesheet" href="style.css">
-    <title>Sales Data - Ray's Salmon Cookies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <header id="page-header">
-        <h1>Welcome to Ray's Salmon Cookies!</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="sales.html">Sales Data</a></li>
-            </ul>
-        </nav>
+        <h1>SalmonCookies</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sales.html">Sales Data</a></li>
+            <li><a href="store.html">Order Now</a></li>
+            <li><a href="order-processing.html">Process Orders</a></li>
+            <li><button id="theme-toggle">Change Mode</button></li>
+        </ul>
+    </nav>
     </header>
-    
-    <main id="main-content">
-        <section id="form-section">
-            <div id="form-container">
-                <form id="add-store-form">
-                    <fieldset>
-                        <legend>Add a new store to the table!!!</legend>
-                        <div class="form-row">
-                            <label>Location Name <input type="text" id="location-name" required></label>
-                            <label>Min Customers <input type="number" id="min-cust" required></label>
-                            <label>Max Customers <input type="number" id="max-cust" required></label>
-                            <label>Avg Cookies <input type="number" id="avg-cookies" step="0.1" required></label>
-                            <button type="submit" id="submit-button">Click here to add!</button>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-        </section>
 
-        <div class="table-wrapper">
-            <table id="sales-table"></table>
-        </div>
-        <div class="table-wrapper">
-            <table id="staffing-table"></table> 
-        </div>
+    <main id="main-content">
+    <section id="form-container">
+        <form id="add-store-form">
+            <fieldset>
+                <legend>Add a New Location</legend>
+                <div class="form-row">
+                    <label>Location Name <input type="text" name="location-name" required></label>
+                    <label>Min Cust <input type="number" name="min-cust" required></label>
+                    <label>Max Cust <input type="number" name="max-cust" required></label>
+                    <label>Avg Cookies <input type="number" step="0.1" name="avg-cookies" required></label>
+                    <button type="submit" id="submit-button">ADD STORE</button>
+                </div>
+            </fieldset>
+        </form>
+    </section>
+
+        <table id="sales-table"></table>
+        <table id="staffing-table"></table>
     </main>
 
     <footer id="page-footer">
@@ -50,6 +45,6 @@
         <p>Contact us: support@rayscookies.com | (555) 123-4567</p>
     </footer>
 
-    <script src="sales.js"></script> 
+    <script src="sales.js"></script>
 </body>
 </html>
