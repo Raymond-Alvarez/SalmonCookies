@@ -1,14 +1,14 @@
 'use strict';
 
-/* --- 1. THEME TOGGLE LOGIC --- */
-const themeToggle = document.getElementById('theme-toggle');
-if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-        document.body.hasAttribute('data-theme') ? 
-            document.body.removeAttribute('data-theme') : 
-            document.body.setAttribute('data-theme', 'dark');
-    });
-}
+// /* --- 1. THEME TOGGLE LOGIC --- */
+// const themeToggle = document.getElementById('theme-toggle');
+// if (themeToggle) {
+//     themeToggle.addEventListener('click', () => {
+//         document.body.hasAttribute('data-theme') ? 
+//             document.body.removeAttribute('data-theme') : 
+//             document.body.setAttribute('data-theme', 'dark');
+//     });
+// }
 
 /* --- 2. GLOBAL VARIABLES & DATA --- */
 const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];

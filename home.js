@@ -1,17 +1,16 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. THEME TOGGLE
-    const themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            document.body.hasAttribute('data-theme') ? 
-                document.body.removeAttribute('data-theme') : 
-                document.body.setAttribute('data-theme', 'dark');
-        });
-    }
-
-    const main = document.getElementById('main-content');
+//     // 1. THEME TOGGLE
+//    const themeToggle = document.getElementById('theme-toggle');
+//     if (themeToggle) {
+//         themeToggle.addEventListener('click', () => {
+//             document.body.hasAttribute('data-theme') ? 
+//                 document.body.removeAttribute('data-theme') : 
+//                 document.body.setAttribute('data-theme', 'dark');
+//         });
+//     }
+const main = document.getElementById('main-content');
     if (!main) return;
 
     // 2. HERO IMAGE ROTATION
@@ -20,8 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const heroImg = document.createElement('img');
     const heroImages = [
-        'img/salmon.png', 'img/hero2.png', 'img/hero3.png', 
-        'img/hero4.png', 'img/hero5.png', 'img/hero6.png', 'img/hero7.png'
+        'img/salmon.png',        
+        'img/shirt.jpg',         
+        'img/frosted-cookie.jpg', 
+        'img/fish.jpg',          
+        'img/family.jpg',        
+        'img/cutter.jpeg',        
+        'img/chinook.jpg'
     ];
 
     let currentIndex = 0;
