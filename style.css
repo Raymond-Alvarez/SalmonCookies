@@ -1,18 +1,28 @@
-/* 1. RESET & THEMES */
+/* ==========================================================================
+   1. RESET & THEME VARIABLES
+   ========================================================================== */
 html, body, div, span, h1, h2, h3, p, a, ul, li, table, form, label, input, select, fieldset, legend, section, article {
     margin: 0; padding: 0; border: 0; box-sizing: border-box;
 }
 
 :root {
-    --bg-color: #ffffff; --text-color: #333; --h2-color: #111;
-    --nav-bg: #ff7f67; --table-bg: #ff7f67; --border-color: #777;
-    --footer-bg: #f9f9f9;
+    --bg-color: #ffffff; 
+    --text-color: #333; 
+    --h2-color: #111;
+    --nav-bg: #ff7f67;      /* Salmon Pink */
+    --footer-bg: #ff7f67;   /* Salmon Pink */
+    --table-bg: #ff7f67; 
+    --border-color: #777;
 }
 
 [data-theme="dark"] {
-    --bg-color: #1a1a1a; --text-color: #f0f0f0; --h2-color: #ff7f67;
-    --nav-bg: #6e362c; --table-bg: #444; --border-color: #999;
-    --footer-bg: #111;
+    --bg-color: #1a1a1a; 
+    --text-color: #f0f0f0; 
+    --h2-color: #ff7f67;
+    --nav-bg: #ff7f67;      /* Salmon Pink - Matches Header Text */
+    --footer-bg: #ff7f67;   /* Salmon Pink - Matches Header Text */
+    --table-bg: #444; 
+    --border-color: #999;
 }
 
 body { 
@@ -23,20 +33,21 @@ body {
     overflow-x: hidden; 
 }
 
-/* 2. HEADER & NAV FIXES */
+/* ==========================================================================
+   2. HEADER & NAVIGATION
+   ========================================================================== */
 #page-header { 
     background-color: #000; 
     color: #ff7f67; 
     text-align: center; 
     width: 101%; 
     margin-left: -0.5%; 
-    padding-bottom: 0;
 }
 
 #page-header h1 { 
     font-family: 'Righteous', sans-serif; 
     font-size: 2.8rem; 
-    padding: 25px 0 15px 0; 
+    padding: 40px 0 30px 0;
     letter-spacing: 1px;
 }
 
@@ -47,10 +58,24 @@ nav {
     width: 100%;
 }
 
-nav ul { display: flex; list-style: none; padding-left: 3%; align-items: center; }
-nav a { color: #000; margin-right: 45px; font-weight: bold; text-decoration: none; font-family: Arial, sans-serif; }
+nav ul { 
+    display: flex; 
+    list-style: none; 
+    padding-left: 3%; 
+    align-items: center; 
+}
 
-/* 3. PILL BUTTONS (Theme Toggle & Process Buttons) */
+nav a { 
+    color: #000; 
+    margin-right: 45px; 
+    font-weight: bold; 
+    text-decoration: none; 
+    font-family: Arial, sans-serif; 
+}
+
+/* ==========================================================================
+   3. GLOBAL UI ELEMENTS (Theme Toggle & Pills)
+   ========================================================================== */
 #theme-toggle, .process-btn {
     background-color: transparent;
     color: #000;
@@ -62,7 +87,6 @@ nav a { color: #000; margin-right: 45px; font-weight: bold; text-decoration: non
     font-weight: bold;
     cursor: pointer;
     text-transform: uppercase;
-    letter-spacing: 1px;
     transition: all 0.3s ease;
 }
 
@@ -70,103 +94,244 @@ nav a { color: #000; margin-right: 45px; font-weight: bold; text-decoration: non
 
 #theme-toggle:hover, .process-btn:hover {
     background-color: #000;
-    color: var(--nav-bg);
-    transform: translateY(-2px);
-}
-
-#theme-toggle:active, .process-btn:active {
-    transform: scale(0.95);
+    color: #ff7f67;
 }
 
 [data-theme="dark"] #theme-toggle, 
 [data-theme="dark"] .process-btn {
-    border-color: var(--nav-bg);
-    color: var(--nav-bg);
+    border-color: #ffffff;
+    color: #ffffff;
 }
 
-[data-theme="dark"] #theme-toggle:hover, 
-[data-theme="dark"] .process-btn:hover {
-    background-color: var(--nav-bg);
-    color: #000;
-}
-
-/* 4. HOME PAGE CONTENT */
-#hero-section { display: flex; justify-content: center; width: 100%; }
-#hero-section img {
-    width: 80%;
-    max-width: 900px;
+/* ==========================================================================
+   4. HOME PAGE (Hero & Content)
+   ========================================================================== */
+#hero-section {
+    width: 100%;
+    max-width: 1000px;
+    height: 400px;
     margin: 30px auto;
+    display: flex;
+    justify-content: center;
+}
+
+#hero-section img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
     border-radius: 10px;
-    display: block;
 }
 
 #main-content article { margin: 40px 0 40px 120px; }
 #main-content h2 { font-family: 'Righteous', sans-serif; font-size: 2rem; margin-bottom: 8px; }
 
-#main-content ul { list-style: none !important; padding: 0 !important; margin: 0 !important; }
-#main-content li { 
+#main-content ul {
     list-style-type: none !important; 
-    padding-left: 30px; 
-    font-family: Arial, sans-serif; 
-    margin-bottom: 5px; 
+    padding-left: 0 !important;
 }
 
-/* 5. SALES PAGE - ADD LOCATION FORM */
+#main-content li { 
+    list-style-type: none !important; 
+    padding-left: 40px; 
+    font-family: Arial, sans-serif; 
+    margin-bottom: 8px; 
+}
+
+/* ==========================================================================
+   5. SALES PAGE (Add Store Form & Tables)
+   ========================================================================== */
 #form-container { width: 80%; max-width: 950px; margin: 40px auto; }
 #form-container fieldset {
-    border: 2px solid var(--border-color) !important;
+    border: 2px solid var(--border-color);
     border-radius: 12px;
     padding: 30px 20px;
 }
+
 #form-container legend {
     font-family: 'Righteous', sans-serif;
     font-size: 1.6rem;
     padding: 0 20px;
     color: var(--h2-color);
-    background-color: var(--bg-color);
-    text-align: center;
 }
+
 #add-store-form .form-row {
     display: flex; gap: 15px; justify-content: center; align-items: flex-end;
 }
-#add-store-form label { display: flex; flex-direction: column; font-size: 0.85rem; font-weight: bold; font-family: Arial, sans-serif; }
-#add-store-form input { width: 150px; height: 40px; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; }
 
-/* 6. ORDER NOW & ADMIN PAGES */
-#public-order-form { max-width: 800px; margin: 0 auto; }
-#order-form-title, .admin-title {
-    display: block; text-align: center; font-family: 'Righteous', sans-serif;
-    font-size: 1.8rem; font-weight: bold; color: var(--h2-color); margin: 50px 0;
+#add-store-form input { width: 150px; height: 40px; border: 1px solid #ccc; border-radius: 4px; }
+
+#add-store-form button {
+    padding: 10px 25px; 
+    background: #000; 
+    color: #fff;
+    font-family: 'Righteous', sans-serif; 
+    border-radius: 8px;
+    border: 2px solid #000;
+    cursor: pointer; 
+    text-transform: uppercase;
+    font-size: 0.9rem;
 }
 
-.admin-section { width: 80%; margin: 20px auto; }
-.order-row {
-    margin-bottom: 15px; border-bottom: 1px solid var(--border-color);
-    padding-bottom: 10px; display: flex; justify-content: space-between; align-items: center;
+#add-store-form button:hover {
+    background: #ff7f67;
+    color: #000;
+}
+
+/* ==========================================================================
+   6. ORDER NOW (Customer Form)
+   ========================================================================== */
+#order-form-title {
+    display: block;
+    text-align: left;
+    padding-left: 8%;
+    font-family: 'Righteous', sans-serif;
+    font-size: 2.2rem;
+    color: var(--h2-color);
+    margin: 60px 0 40px 0;
+}
+
+#public-order-form {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#public-order-form fieldset {
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 50px;
+}
+
+#public-order-form legend {
+    font-family: 'Righteous', sans-serif;
+    font-size: 1.6rem;
+    padding: 0 20px;
+    color: var(--h2-color);
+    background-color: var(--bg-color);
+}
+
+#public-order-form label {
+    display: block;
+    margin-top: 20px;
+    font-weight: bold;
     font-family: Arial, sans-serif;
 }
 
-#public-order-form fieldset { border: 2px solid var(--border-color); padding: 25px; margin-bottom: 30px; }
-#public-order-form label { display: block; margin-top: 15px; font-weight: bold; font-family: Arial, sans-serif; }
-#public-order-form input, #public-order-form select { width: 100%; padding: 12px; margin-top: 8px; border: 1px solid #ccc; border-radius: 4px; }
-
-/* 7. SUBMIT BUTTONS (Rectangular/Block) */
-#add-store-form button, #public-order-form button {
-    display: block; margin: 40px auto; background: #000; color: #fff;
-    font-family: 'Righteous', sans-serif; text-transform: uppercase;
-    border-radius: 6px; cursor: pointer; border: none; transition: all 0.3s ease;
+#public-order-form input, #public-order-form select {
+    width: 100%; padding: 12px; margin-top: 10px; border: 1px solid #ccc; border-radius: 4px;
 }
-#add-store-form button { height: 40px; padding: 0 25px; margin: 0; }
-#public-order-form button { padding: 15px 50px; font-size: 1.2rem; }
-#add-store-form button:hover, #public-order-form button:hover { background: var(--nav-bg); color: #000; }
 
-/* 8. TABLES & FOOTER */
-table { width: 95%; margin: 30px auto; border-collapse: collapse; }
-th, td { border: 1px solid #444; padding: 12px; text-align: center; }
-td { background-color: var(--table-bg); color: #000; font-weight: bold; }
-thead th, tfoot th { background-color: #333; color: white; }
+#public-order-form button { 
+    display: block; 
+    margin: 20px auto 60px auto;
+    padding: 15px 60px; 
+    background: #000; 
+    color: #fff; 
+    font-family: 'Righteous', sans-serif; 
+    font-size: 1.3rem;
+    border-radius: 8px; 
+    cursor: pointer; 
+    border: 2px solid #000;
+}
+
+/* ==========================================================================
+   7. ORDER PROCESSING (Admin Dashboard)
+   ========================================================================== */
+.admin-section { 
+    width: 70%; 
+    max-width: 850px; 
+    margin: 20px auto; 
+}
+
+.admin-title { text-align: center; font-family: 'Righteous', sans-serif; margin: 50px 0; }
+
+.order-row {
+    padding: 20px 0; 
+    border-bottom: 1px solid var(--border-color);
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+#filled-list {
+    list-style: none;
+    width: 100%; 
+    max-width: 1300px; 
+    margin: 40px auto; 
+    padding: 20px;
+    min-height: 120px;
+    background-color: #ffffff;
+    border: 2px solid #000; 
+    border-radius: 8px;
+    display: block; 
+    box-sizing: border-box;
+}
+
+#filled-list li {
+    margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px dashed #ccc; text-align: left;
+}
+
+/* ==========================================================================
+   8. DARK MODE SPECIFIC OVERRIDES
+   ========================================================================== */
+[data-theme="dark"] #filled-list {
+    background-color: #000000;
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+[data-theme="dark"] #add-store-form button,
+[data-theme="dark"] #public-order-form button {
+    border-color: #ffffff;
+    color: #ffffff;
+    background-color: transparent;
+}
+
+[data-theme="dark"] table {
+    border: 3px solid #ff7f67; /* Salmon border for Dark Mode */
+}
+
+/* ==========================================================================
+   9. TABLES & FOOTER
+   ========================================================================== */
+table { 
+    width: 95%; 
+    margin: 30px auto; 
+    border-collapse: collapse; 
+    border: 2px solid #444; 
+}
+
+th, td { 
+    border: 1px solid #444; 
+    padding: 12px; 
+    text-align: center; 
+}
+
+/* Restores grid visibility in dark mode */
+[data-theme="dark"] th, 
+[data-theme="dark"] td {
+    border: 1px solid #666; 
+}
+
+td { 
+    background-color: var(--table-bg); 
+    color: #000; 
+    font-weight: bold; 
+}
 
 footer { 
-    background-color: var(--footer-bg); padding: 30px; text-align: center; 
-    margin-top: 60px; font-family: Arial, sans-serif; line-height: 1.6; border-top: 1px solid var(--border-color);
+    background-color: var(--footer-bg); 
+    color: #000;            /* Black text for contrast on Salmon */
+    padding: 30px; 
+    text-align: center; 
+    margin-top: 60px; 
+    border-top: 2px solid #000;
+    font-weight: bold;
+}
+
+[data-theme="dark"] footer { 
+    background-color: #ff7f67; 
+    color: #000; 
 }
