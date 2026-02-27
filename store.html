@@ -24,33 +24,33 @@
     <main id="main-content">
         <span id="order-form-title">Customer Order Form</span>
 
-        <form id="public-order-form">
-            <fieldset>
-            <legend>Shipping Information</legend>
-            <div class="form-row"> 
-                <label>Full Name:
-                <input type="text" placeholder="First and Last Name">
-                </label>
-                <label>Street Address:
-                <input type="text" placeholder="123 Salmon Way">
-                </label>
-            </div>
-            </fieldset>
+    <form id="public-order-form">
+                <fieldset>
+                    <legend>Shipping Information</legend>
+                    <div class="form-row"> 
+                        <label>Full Name:
+                            <input type="text" name="full-name" placeholder="First and Last Name" required>
+                        </label>
+                        <label>Street Address:
+                            <input type="text" name="street-address" placeholder="123 Salmon Way" required>
+                        </label>
+                    </div>
+                </fieldset>
 
-            <fieldset>
-            <legend>Order Details</legend>
-            <div class="form-row"> 
-                <label class="quantity-field">Cookies (Dozen):
-                <input type="number">
-                </label>
-                <label class="quantity-field">Salmon Swag <br>(T-Shirt):
-                <select>...</select>
-                </label>
-            </div>
-            </fieldset>
+                <fieldset>
+                    <legend>Order Details</legend>
+                    <div class="form-row"> 
+                        <label class="quantity-field">Cookies (Dozen):
+                            <input type="number" name="cookies" min="0" value="0">
+                        </label>
+                        <label class="quantity-field">Salmon Swag (T-Shirt):
+                            <input type="number" name="swag" min="0" value="0">
+                        </label>
+                    </div>
+                </fieldset>
 
-            <button type="submit">SUBMIT ORDER</button>
-        </form>
+                <button type="submit">SUBMIT ORDER</button>
+            </form>
     </main>
 
     <footer id="page-footer">

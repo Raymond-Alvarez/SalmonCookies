@@ -411,27 +411,46 @@ table tr td:last-child {
     color: #000000 !important;
 }
 
+/* 3. Dark Mode UI & Buttons */
+
+/* This targets the Theme Toggle specifically */
+[data-theme="dark"] #theme-toggle {
+    background-color: #000000 !important;
+    border: 2px solid #ffffff !important;
+    color: #ffffff !important;
+}
+
+/* This targets EVERY button on the site when in Dark Mode */
+[data-theme="dark"] button, 
+[data-theme="dark"] input[type="submit"] {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important; /* Forces the white border back */
+    padding: 10px 25px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+/* Dark Mode Hover for all buttons */
+[data-theme="dark"] button:hover {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border: 2px solid #000000 !important;
+}
+
 /* ==========================================================================
    3. GLOBAL UI ELEMENTS (Theme Toggle & Pills)
    ========================================================================== */
 #theme-toggle, .process-btn {
     background-color: transparent;
-    color: #ffffff;            /* Always White text */
-    border: 2px solid #000;    /* Black border in Light Mode */
-    padding: 8px 18px;
+    color: #000;
+    border: 2px solid #000;    
+    padding: 10px 25px;        /* SET CONSISTENT PADDING */
     border-radius: 20px;
     font-family: Arial, sans-serif;
-    font-size: 0.85rem;        /* Locked Size */
-    font-weight: 900;          /* Locked Thickness */
+    font-size: 0.85rem;        /* SET CONSISTENT SIZE */
+    font-weight: 900;          
     cursor: pointer;
     text-transform: uppercase;
     transition: all 0.3s ease;
-}
-
-#theme-toggle { margin-left: 20px; }
-
-/* Light Mode Hover */
-#theme-toggle:hover, .process-btn:hover {
-    background-color: #000;
-    color: #ff7f67;
 }
