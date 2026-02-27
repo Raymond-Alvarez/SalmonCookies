@@ -26,29 +26,27 @@
 
         <form id="public-order-form">
             <fieldset>
-                <legend>Shipping Information</legend>
-                <label>Full Name: 
-                    <input type="text" name="full-name" placeholder="First and Last Name" required>
+            <legend>Shipping Information</legend>
+            <div class="form-row"> 
+                <label>Full Name:
+                <input type="text" placeholder="First and Last Name">
                 </label>
-                <label>Street Address: 
-                    <input type="text" name="address" placeholder="123 Salmon Way" required>
+                <label>Street Address:
+                <input type="text" placeholder="123 Salmon Way">
                 </label>
+            </div>
             </fieldset>
 
             <fieldset>
-                <legend>Order Details</legend>
-                <label>Cookies (Dozen): 
-                    <input type="number" name="quantity" min="1" value="1" required>
+            <legend>Order Details</legend>
+            <div class="form-row"> 
+                <label class="quantity-field">Cookies (Dozen):
+                <input type="number">
                 </label>
-                <label>Salmon Swag (T-Shirt): 
-                    <select name="swag">
-                        <option value="none">None</option>
-                        <option value="small">Small</option>
-                        <option value="medium">Medium</option>
-                        <option value="large">Large</option>
-                        <option value="xl">Extra Large</option>
-                    </select>
+                <label class="quantity-field">Salmon Swag <br>(T-Shirt):
+                <select>...</select>
                 </label>
+            </div>
             </fieldset>
 
             <button type="submit">SUBMIT ORDER</button>
