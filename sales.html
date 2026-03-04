@@ -2,14 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sales - SalmonCookies</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+   <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <title>Salmon Cookies - Sales Data</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
     <script src="theme.js" defer></script>
-</head>
 <body>
+
     <header id="page-header">
-        <h1>Welcome to Ray's Salmon Cookies!</h1>
+        <h1>Welcome to Ray's Salmon Cookies</h1>
+    </header>
+
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -19,26 +31,42 @@
             <li><button id="theme-toggle">Change Mode</button></li>
         </ul>
     </nav>
-    </header>
 
-    <main id="main-content">
-    <section id="form-container">
-        <form id="add-store-form">
-            <fieldset>
-                <legend>Add a New Location</legend>
-                <div class="form-row">
-                    <label>Location Name <input type="text" name="location-name" required></label>
-                    <label>Min Cust <input type="number" name="min-cust" required></label>
-                    <label>Max Cust <input type="number" name="max-cust" required></label>
-                    <label>Avg Cookies <input type="number" step="0.1" name="avg-cookies" required></label>
-                    <button type="submit" id="submit-button">ADD STORE</button>
-                </div>
-            </fieldset>
-        </form>
-    </section>
+    <main>
+        <section id="form-container">
+            <form id="add-store-form">
+                <fieldset>
+                    <legend>Add a New Location</legend>
+                    <div class="form-row">
+                        <label>Location Name
+                            <input type="text" name="location-name" required placeholder="e.g. Seattle">
+                        </label>
+                        <label>Min Cust
+                            <input type="number" name="min-cust" min="0" required>
+                        </label>
+                        <label>Max Cust
+                            <input type="number" name="max-cust" min="0" required>
+                        </label>
+                        <label>Avg Cookies
+                            <input type="number" name="avg-cookies" step="0.1" min="0" required>
+                        </label>
+                        <button type="submit">Add Store</button>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
 
-        <table id="sales-table"></table>
-        <table id="staffing-table"></table>
+        <section class="table-scroll-container">
+            <h2 class="visually-hidden">Daily Sales Data Table</h2>
+            <table id="sales-table">
+                </table>
+        </section>
+
+        <section class="table-scroll-container">
+            <h2 class="visually-hidden">Hourly Staffing Needs Table</h2>
+            <table id="staffing-table">
+                </table>
+        </section>
     </main>
 
     <footer id="page-footer">

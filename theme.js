@@ -1,22 +1,27 @@
-console.log("Theme script is loaded!");
-// 1. Apply theme immediately (No button needed)
-if (localStorage.getItem('theme') === 'dark') {
-    document.body.setAttribute('data-theme', 'dark');
-}
+'use strict';
 
-// 2. Wait for the button to exist
-window.addEventListener('load', () => {
+// 1. Function to handle the actual theme change
+const applyTheme = (theme) => {
+    if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+    }
+};
+
+// 2. Wait for the page to load so the button exists
+window.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('theme-toggle');
+
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
-            const isDark = document.body.hasAttribute('data-theme');
-            if (isDark) {
-                document.body.removeAttribute('data-theme');
-                localStorage.setItem('theme', 'light');
-            } else {
-                document.body.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-            }
+            // Check if the html tag currently has the dark theme attribute
+            const isDark = document.documentElement.hasAttribute('data-theme');
+            
+            // If it's currently dark, switch to light. If light, switch to dark.
+            applyTheme(isDark ? 'light' : 'dark');
         });
     }
 });
