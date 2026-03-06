@@ -110,7 +110,8 @@ nav ul li a:hover {
     font-weight: 900;
     cursor: pointer;
     text-transform: uppercase;
-    transition: all 0.3s ease;
+    /* Added specific transitions to prevent flashing */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 #theme-toggle { margin-left: 20px; }
@@ -124,6 +125,7 @@ nav ul li a:hover {
 [data-theme="dark"] .process-btn {
     border-color: #ffffff;
     color: #ffffff;
+    background-color: #000;
 }
 
 /* ==========================================================================
@@ -239,9 +241,10 @@ nav ul li a:hover {
     transition: all 0.3s ease;
     
     /* SYNC: Ensure it uses the same light mode colors as the toggle */
-    background-color: #d1d1d1;
+    /* background-color: #d1d1d1; */
     color: #000;
-    border: 2px solid #000;
+    border: 2px solid white;
+
 }
 
 #add-store-form button:hover {
@@ -332,9 +335,9 @@ nav ul li a:hover {
     display: block; 
     margin: 40px auto; 
     padding: 15px 60px; /* Chunkier button to match the new form scale */
-    background-color: #d1d1d1; 
-    color: #000; 
-    border: 2px solid #000; 
+    background-color: black; 
+    color: white; 
+    border: 2px solid white; 
     border-radius: 50px; 
     font-family: Arial, sans-serif; 
     font-weight: 900; 
@@ -460,7 +463,6 @@ footer {
     border-top: 2px solid #000;
     width: 100%;
     margin-top: 40px; 
-    border-top: 2px solid #000;
     font-weight: bold;
 }
 
@@ -472,10 +474,6 @@ table tr td:last-child { background-color: #d1d1d1 !important; }
 @media (max-width: 1200px) { th, td { padding: 8px 4px; font-size: 0.9rem; } }
 
 /* --- RESPONSIVE TABLE FIX --- */
-
-/* ==========================================================================
-   8. TABLES & RESPONSIVE FIXES (CLEANED)
-   ========================================================================== */
 
 .table-scroll-container {
     width: 95%;
@@ -542,9 +540,9 @@ th, td {
 [data-theme="dark"] button, 
 [data-theme="dark"] #theme-toggle, 
 [data-theme="dark"] input[type="submit"] {
-    background-color: #000000 !important;
+    background-color: #000000;
     color: #ffffff !important;
-    border: 2px solid #ffffff !important;
+    border: 2px solid #ffffff;
 }
 
 /* General Dark Mode Hover (Change Mode template) */
@@ -561,14 +559,14 @@ th, td {
 [data-theme="dark"] #public-order-form button:hover {
     background-color: #d1d1d1 !important;
     color: #000000 !important;
-    border: 2px solid #000000 !important;
+    border: 2px solid #ff7f67 !important; 
 }
 
 /* Ensures the Add Store button matches the hover exactly */
 [data-theme="dark"] #add-store-form button:hover {
     background-color: #d1d1d1 !important;
     color: #000000 !important;
-    border: 2px solid #000000 !important;
+    border: 2px solid #ff7f67 !important;
 }
 
 /* If the user types a number lower than 1, the box turns red */
@@ -582,4 +580,14 @@ input:invalid:focus {
     outline: none;
     box-shadow: 0 0 5px #ff4d4d;
 }
-
+ transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}

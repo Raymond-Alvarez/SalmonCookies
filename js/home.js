@@ -1,20 +1,7 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. THEME TOGGLE (Uncommented and improved)
-    const themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            if (currentTheme === 'dark') {
-                document.documentElement.removeAttribute('data-theme');
-                localStorage.setItem('theme', 'light');
-            } else {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-            }
-        });
-    }
+
 
     const main = document.getElementById('main-content');
     if (!main) return;
