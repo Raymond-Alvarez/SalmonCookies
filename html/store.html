@@ -3,19 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
-        (function() {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') {
-                document.documentElement.setAttribute('data-theme', 'dark');
-            }
-        })();
-    </script>
+    <script src="../js/init-theme.js"></script>
     
     <title>Order Now - SalmonCookies</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
-    <script src="theme.js" defer></script>
+    <script src="../js/theme.js" defer></script>
 </head>
 <body>
     <header id="page-header">
@@ -67,6 +60,6 @@
         <p>&copy; 2026 Ray's Salmon Cookies</p>
         <p>Contact us: support@rayscookies.com | (555) 123-4567</p>
     </footer>
-
+        <script src="../js/store.js"></script>
 </body>
 </html>
