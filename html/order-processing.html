@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="../js/init-theme.js"></script>
+    
     <title>Order Processing - Salmon Cookies</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
-    <script src="theme.js" defer></script>
+    <script src="../js/theme.js" defer></script>
 </head>
 <body>
     <header id="page-header">
-        <h1>Welcome to Ray's Salmon Cookies!</h1>
+        <h1>Welcome to Ray's Salmon Cookies</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -23,23 +26,11 @@
     </header>
 
     <main id="main-content">
-        <section class="admin-section">
-            <h2 class="admin-title">Pending Orders</h2>
-            <ul id="pending-list" style="list-style: none; padding: 0;">
-                <li class="order-row">
-                    Order #5001 - 2 Dozen Classic Salmon - Pat Smith 
-                    <button class="process-btn">Process Order</button>
-                </li>
-                <li class="order-row">
-                    Order #5002 - 1 Dozen Choc-Chip Salmon - Chris Lee 
-                    <button class="process-btn">Process Order</button>
-                </li>
-                <li class="order-row">
-                    Order #5003 - 5 Dozen Oatmeal Salmon - Morgan J. 
-                    <button class="process-btn">Process Order</button>
-                </li>
+    <section class="admin-section">
+        <h2 class="admin-title">Pending Orders</h2>
+        <ul id="pending-list" style="list-style: none; padding: 0;">
             </ul>
-        </section>
+    </section>
 
         <hr style="margin: 40px auto; width: 80%; border: 1px solid var(--border-color);">
 
@@ -55,6 +46,6 @@
         <p>Contact us: support@rayscookies.com | (555) 123-4567</p>
     </footer>
 
-    <script src="orders.js"></script>
+    <script src="../js/orders.js"></script>
 </body>
 </html>

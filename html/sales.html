@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <script src="../js/init-theme.js"></script>
+    <title>Salmon Cookies - Sales Data</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <script src="../js/theme.js" defer></script>
+<body>
+
+    <header id="page-header">
+        <h1>Welcome to Ray's Salmon Cookies</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sales.html">Sales Data</a></li>
+            <li><a href="store.html">Order Now</a></li>
+            <li><a href="order-processing.html">Process Orders</a></li>
+            <li><button id="theme-toggle">Change Mode</button></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="form-container">
+            <form id="add-store-form">
+                <fieldset>
+                    <legend>Add a New Location</legend>
+                    <div class="form-row">
+                        <label>Location Name
+                            <input type="text" name="location-name" required placeholder="e.g. Seattle">
+                        </label>
+                        <label>Min Cust
+                            <input type="number" name="min-cust" min="0" required>
+                        </label>
+                        <label>Max Cust
+                            <input type="number" name="max-cust" min="0" required>
+                        </label>
+                        <label>Avg Cookies
+                            <input type="number" name="avg-cookies" step="0.1" min="0" required>
+                        </label>
+                        <button type="submit">Add Store</button>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+
+        <section class="table-scroll-container">
+            <h2 class="visually-hidden">Daily Sales Data Table</h2>
+            <table id="sales-table">
+                </table>
+        </section>
+
+        <section class="table-scroll-container">
+            <h2 class="visually-hidden">Hourly Staffing Needs Table</h2>
+            <table id="staffing-table">
+                </table>
+        </section>
+    </main>
+
+    <footer id="page-footer">
+        <p>&copy; 2026 Ray's Salmon Cookies</p>
+        <p>Contact us: support@rayscookies.com | (555) 123-4567</p>
+    </footer>
+
+    <script src="../js/sales.js"></script>
+</body>
+</html>

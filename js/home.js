@@ -19,13 +19,13 @@ const main = document.getElementById('main-content');
     
     const heroImg = document.createElement('img');
     const heroImages = [
-        'img/salmon.png',        
-        'img/shirt.jpg',         
-        'img/frosted-cookie.jpg', 
-        'img/fish.jpg',          
-        'img/family.jpg',        
-        'img/cutter.jpeg',        
-        'img/chinook.jpg'
+        '../img/salmon.png',        
+        '../img/shirt.jpg',         
+        '../img/frosted-cookie.jpg', 
+        '../img/fish.jpg',          
+        '../img/family.jpg',        
+        '../img/cutter.jpeg',        
+        '../img/chinook.jpg'
     ];
 
     let currentIndex = 0;
