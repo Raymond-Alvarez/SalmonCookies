@@ -1,16 +1,22 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
-//     // 1. THEME TOGGLE
-//    const themeToggle = document.getElementById('theme-toggle');
-//     if (themeToggle) {
-//         themeToggle.addEventListener('click', () => {
-//             document.body.hasAttribute('data-theme') ? 
-//                 document.body.removeAttribute('data-theme') : 
-//                 document.body.setAttribute('data-theme', 'dark');
-//         });
-//     }
-const main = document.getElementById('main-content');
+    // 1. THEME TOGGLE (Uncommented and improved)
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    }
+
+    const main = document.getElementById('main-content');
     if (!main) return;
 
     // 2. HERO IMAGE ROTATION
@@ -19,13 +25,13 @@ const main = document.getElementById('main-content');
     
     const heroImg = document.createElement('img');
     const heroImages = [
-        '../img/salmon.png',        
-        '../img/shirt.jpg',         
-        '../img/frosted-cookie.jpg', 
-        '../img/fish.jpg',          
-        '../img/family.jpg',        
-        '../img/cutter.jpeg',        
-        '../img/chinook.jpg'
+        'img/salmon.png',        
+        'img/shirt.jpg',         
+        'img/frosted-cookie.jpg', 
+        'img/fish.jpg',          
+        'img/family.jpg',        
+        'img/cutter.jpeg',        
+        'img/chinook.jpg'
     ];
 
     let currentIndex = 0;
@@ -34,7 +40,6 @@ const main = document.getElementById('main-content');
     heroSection.appendChild(heroImg);
     main.appendChild(heroSection);
 
-    // Simple rotation without fade flicker
     setInterval(() => {
         currentIndex = (currentIndex + 1) % heroImages.length;
         heroImg.src = heroImages[currentIndex];
@@ -53,7 +58,6 @@ const main = document.getElementById('main-content');
 
     locations.forEach(store => {
         const storeArticle = document.createElement('article');
-
         const cityTitle = document.createElement('h2');
         cityTitle.textContent = store.city;
         storeArticle.appendChild(cityTitle);
