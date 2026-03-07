@@ -27,10 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
     heroSection.appendChild(heroImg);
     main.appendChild(heroSection);
 
-    setInterval(() => {
+   const intervalId = setInterval(() => {
         currentIndex = (currentIndex + 1) % heroImages.length;
         heroImg.src = heroImages[currentIndex];
     }, 5000);
+
+    window.addEventListener('beforeunload', () => {
+        clearInterval(intervalId);
+    });
 
     main.appendChild(document.createElement('hr'));
 

@@ -25,6 +25,10 @@ html, body, div, span, h1, h2, h3, p, a, ul, li, table, form, label, input, sele
     --border-color: #999;
 }
 
+html {
+    overflow-y: scroll;
+}
+
 body { 
     background-color: var(--bg-color); 
     color: var(--text-color); 
@@ -37,6 +41,7 @@ body {
     flex-direction: column;
     min-height: 100vh; /* Forces body to be at least screen height */
     margin: 0;
+    
 }
 
 main#main-content {
@@ -50,8 +55,8 @@ main#main-content {
     background-color: #000; 
     color: #ff7f67; 
     text-align: center; 
-    width: 101%; 
-    margin-left: -0.5%; 
+    width: 100%; 
+    margin-left: 0; 
 }
 
 #page-header h1 { 
@@ -66,12 +71,13 @@ nav {
     padding: 15px 0; 
     margin-top: -2px; 
     width: 100%;
+    margin-left: 0;
 }
 
 nav ul { 
     display: flex; 
     list-style: none; 
-    padding-left: 3%; 
+    padding-left: 120px; 
     align-items: center; 
 }
 
@@ -81,25 +87,31 @@ nav a {
     font-weight: bold; 
     text-decoration: none; 
     font-family: Arial, sans-serif; 
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
+
 
 /* This makes the links white when you move your mouse over them */
 nav ul li a:hover {
-    color: #ffffff !important;
+    color: #ffffff; /* Forces the color to change in both modes */
     text-decoration: underline; /* Optional: adds an underline on hover */
-    transition: color 0.2s ease; /* Makes the color change smooth */
+    
 }
 
 /* Optional: If you want them to turn a slightly different white/gray in Dark Mode */
 [data-theme="dark"] nav ul li a:hover {
-    color: #ffffff !important;
+    color: #ffffff;
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Adds a subtle glow in dark mode */
 }
 
 /* ==========================================================================
-   3. GLOBAL UI ELEMENTS (Template: Change Mode & Pills)
+   3. GLOBAL UI ELEMENTS (Syncs all buttons)
    ========================================================================== */
-#theme-toggle, .process-btn {
+#theme-toggle, 
+.process-btn, 
+#add-store-form button, 
+#public-order-form button, 
+button {
     background-color: #d1d1d1;
     color: #000;
     border: 2px solid #000;
@@ -110,22 +122,24 @@ nav ul li a:hover {
     font-weight: 900;
     cursor: pointer;
     text-transform: uppercase;
-    /* Added specific transitions to prevent flashing */
+    /* Use 'all' consistently across all sections to prevent stuttering */
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-#theme-toggle { margin-left: 20px; }
-
-#theme-toggle:hover, .process-btn:hover {
+/* Light Mode Hover & Active (Pressed) */
+#theme-toggle:hover,
+#theme-toggle:active { 
     background-color: #000;
     color: #ff7f67;
+    border: 2px solid white;
 }
 
-[data-theme="dark"] #theme-toggle, 
-[data-theme="dark"] .process-btn {
-    border-color: #ffffff;
-    color: #ffffff;
+.process-btn:hover, .process-btn:active,
+#add-store-form button:hover, #add-store-form button:active,
+#public-order-form button:hover, #public-order-form button:active {
     background-color: #000;
+    color: #ff7f67;
+    border: 2px solid #ff7f67;
 }
 
 /* ==========================================================================
@@ -141,7 +155,13 @@ nav ul li a:hover {
 }
 
 #hero-section img {
-    width: 100%; height: auto; max-height: 400px; object-fit: contain; border-radius: 10px;
+    width: 100%; 
+    height: auto; 
+    max-height: 400px; 
+    object-fit: contain; 
+    border-radius: 10px;
+    will-change: contents;   /* Isolates the image repaints to its own layer */
+    contain: strict;          /* Prevents repaints from escaping this element */
 }
 
 #main-content article { margin: 40px 0 40px 120px; }
@@ -171,7 +191,7 @@ nav ul li a:hover {
 #form-container { 
     width: 90%; 
     max-width: 1100px; 
-    margin: 60px auto; 
+    margin: 80px auto; 
 }
 
 /* RESTORED: The border and padding around the form */
@@ -226,35 +246,19 @@ nav ul li a:hover {
 }
 
 #add-store-form button {
-    /* These properties match the shape/size of your Change Mode button */
     height: 55px;
     padding: 0 35px;
     margin-left: 10px;
     border-radius: 50px;
-    
-    /* Inherit the colors/fonts from the #theme-toggle / .process-btn style in Section 3 */
     font-family: Arial, sans-serif;
     font-weight: 900;
     text-transform: uppercase;
     cursor: pointer;
     white-space: nowrap;
-    transition: all 0.3s ease;
-    
-    /* SYNC: Ensure it uses the same light mode colors as the toggle */
-    /* background-color: #d1d1d1; */
-    color: #000;
-    border: 2px solid white;
-
+        /* DELETE the background, color, and border lines from here */
 }
 
-#add-store-form button:hover {
-    /* SYNC: Matches the black/salmon hover of your Change Mode button */
-    background-color: #000 !important;
-    color: #ff7f67 !important;
-}
-
-
-
+ 
 /* ==========================================================================
    6. ORDER NOW (Customer Form & Layout Refinement)
    ========================================================================== */
@@ -335,21 +339,19 @@ nav ul li a:hover {
     display: block; 
     margin: 40px auto; 
     padding: 15px 60px; /* Chunkier button to match the new form scale */
-    background-color: black; 
-    color: white; 
-    border: 2px solid white; 
     border-radius: 50px; 
     font-family: Arial, sans-serif; 
     font-weight: 900; 
     font-size: 1rem; 
     cursor: pointer; 
     text-transform: uppercase;
-    transition: all 0.3s ease;
+    
 }
 
 #public-order-form button:hover {
     background-color: #000;
     color: #ff7f67;
+    border-color: #ff7f67 !important;
 }
 
 #order-form-title {
@@ -525,62 +527,133 @@ th, td {
    9. THE "FINAL WORD" DARK MODE OVERRIDES
    ========================================================================== */
 
+
+/* 1. TABLE OVERRIDES - Keeping !important here is okay for data rows */
 [data-theme="dark"] td, [data-theme="dark"] th {
-    background-color: #ffffff !important; color: #000000 !important; 
+    background-color: #ffffff !important; 
+    color: #000000 !important; 
 }
 
 [data-theme="dark"] table tr:first-child th,
 [data-theme="dark"] table tr th:first-child,
 [data-theme="dark"] table tr td:first-child,
 [data-theme="dark"] table tr td:last-child {
-    background-color: #ff7f67 !important; color: #000000 !important;
+    background-color: #ff7f67 !important; 
+    color: #000000 !important;
 }
 
-/* General Dark Mode Button Baseline (Change Mode, Submit, Add Store) */
-[data-theme="dark"] button, 
+/* 2. NAV LINKS DARK MODE - This stops the link flashing */
+[data-theme="dark"] nav ul li a:hover, 
+[data-theme="dark"] nav ul li a:active {
+    color: #ffffff;            /* Removed !important */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); 
+}
+
+/* 3. BUTTON BASELINES - Synced for Dark Mode */
 [data-theme="dark"] #theme-toggle, 
-[data-theme="dark"] input[type="submit"] {
+[data-theme="dark"] #public-order-form button,
+[data-theme="dark"] #add-store-form button,
+[data-theme="dark"] .process-btn {
     background-color: #000000;
-    color: #ffffff !important;
+    color: #ffffff;            
     border: 2px solid #ffffff;
 }
 
-/* General Dark Mode Hover (Change Mode template) */
-[data-theme="dark"] button:hover, 
-[data-theme="dark"] #theme-toggle:hover {
+/* 4. BUTTON HOVER & ACTIVE - The "Sync" that kills the flash */
+[data-theme="dark"] #theme-toggle:hover, 
+[data-theme="dark"] #theme-toggle:active {
     background-color: #d1d1d1 !important;
     color: #000000 !important;
-    border: 2px solid #000000 !important;
+    border-color: #000000 !important;
 }
 
-/* --- SPECIFIC BUTTON SYNC --- */
-
-/* Ensures the Submit Order button matches the hover exactly */
-[data-theme="dark"] #public-order-form button:hover {
-    background-color: #d1d1d1 !important;
-    color: #000000 !important;
-    border: 2px solid #ff7f67 !important; 
+[data-theme="dark"] #public-order-form button:hover, 
+[data-theme="dark"] #public-order-form button:active,
+[data-theme="dark"] #add-store-form button:hover, 
+[data-theme="dark"] #add-store-form button:active,
+[data-theme="dark"] .process-btn:hover, 
+[data-theme="dark"] .process-btn:active {
+    background-color: #d1d1d1 !important; 
+    color: #000000 !important;            
+    border: 2px solid #ff7f67 !important; /* The Salmon Accent */
 }
 
-/* Ensures the Add Store button matches the hover exactly */
-[data-theme="dark"] #add-store-form button:hover {
-    background-color: #d1d1d1 !important;
-    color: #000000 !important;
-    border: 2px solid #ff7f67 !important;
-}
-
-/* If the user types a number lower than 1, the box turns red */
+/* 5. FORM VALIDATION */
 input:invalid {
     border: 2px solid #ff4d4d !important; 
     background-color: #fff0f0;
 }
 
-/* This adds a smooth red glow when they click on a "broken" box */
 input:invalid:focus {
     outline: none;
     box-shadow: 0 0 5px #ff4d4d;
 }
- transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+
+
+/* ==========================================================================
+   RESPONSIVE - ADD STORE FORM & NAV
+   ========================================================================== */
+
+/* Medium screens — 2x2 grid with button centered below */
+@media (max-width: 900px) {
+    #add-store-form .form-row {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+    }
+
+    #add-store-form label {
+        width: calc(50% - 20px);
+        flex: 0 0 calc(50% - 20px);
+    }
+
+    #add-store-form input {
+        width: 100%;
+    }
+
+    #add-store-form input[name="location-name"] {
+        width: 100%;
+    }
+
+    #add-store-form button {
+        width: auto;
+        min-width: 150px;
+        max-width: 200px;
+        margin: 10px auto 0 auto;
+        display: block;
+    }
+
+    nav ul {
+        padding-left: 20px;
+        padding-right: 20px;
+        flex-wrap: nowrap;
+        gap: 4px;
+    }
+
+    nav a {
+        margin-right: 8px;
+        font-size: 0.85rem;
+    }
+
+    nav ul li:last-child {
+        margin-right: 20px;
+    }
+
+    #theme-toggle {
+        white-space: nowrap;
+        font-size: 0.75rem;
+        padding: 8px 14px;
+    }
+}
+
+/* Small screens — all fields stack vertically, button at bottom */
+@media (max-width: 500px) {
+    #add-store-form label {
+        width: 100%;
+        flex: 0 0 100%;
+    }
+}
+
+/* --- ACCESSIBILITY HELPER --- */
 .visually-hidden {
     position: absolute;
     width: 1px;

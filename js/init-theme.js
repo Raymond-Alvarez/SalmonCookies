@@ -7,6 +7,17 @@
 
     // 2. Attach the click listener to the button on EVERY page
     window.addEventListener('DOMContentLoaded', () => {
+       
+        document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const linkPath = new URL(link.href).pathname;
+            const currentPath = window.location.pathname;
+            if (linkPath === currentPath) {
+                e.preventDefault(); // Already here — do nothing
+            }
+        });
+    });
+    
         const themeBtn = document.getElementById('theme-toggle');
         if (themeBtn) {
             themeBtn.addEventListener('click', () => {
